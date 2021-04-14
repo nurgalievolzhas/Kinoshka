@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kinoshka</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movies">Movies</string>
+    <string name="cinemas">Cinemas</string>
+    <string name="my_tickets">My Tickets</string>
+    <string name="profile">Profile</string>
+</resources>
