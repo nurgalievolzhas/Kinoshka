@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.FirstFragment">
+
+
+    <ImageView
+        android:id="@+id/movie_poster_iv"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/movie_title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Some Title"
+        android:fontFamily="@font/courgette"
+        android:textColor="@color/darkGray"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_poster_iv" />
+
+    <TextView
+        android:id="@+id/movie_lang_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:text="Original language:"
+        app:layout_constraintStart_toStartOf="@+id/movie_title_tv"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title_tv" />
+
+    <TextView
+        android:id="@+id/movie_lang_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="English"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:textColor="@color/dark"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_lang_label_tv"
+        app:layout_constraintStart_toEndOf="@+id/movie_lang_label_tv"
+        app:layout_constraintTop_toTopOf="@+id/movie_lang_label_tv" />
+
+    <TextView
+        android:id="@+id/movie_popularity_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:text="Popularity:"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_lang_tv"
+        app:layout_constraintStart_toEndOf="@+id/movie_lang_tv"
+        app:layout_constraintTop_toTopOf="@+id/movie_lang_tv" />
+
+    <TextView
+        android:id="@+id/movie_popularity_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="1000"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:textColor="@color/dark"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_popularity_label_tv"
+        app:layout_constraintStart_toEndOf="@+id/movie_popularity_label_tv"
+        app:layout_constraintTop_toTopOf="@+id/movie_popularity_label_tv" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_lang_label_tv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/movie_overview_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Overview" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

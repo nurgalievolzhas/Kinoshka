@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MoviesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="com.snakes.kinoshka.viewmodels.MainViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/movies" />
+        tools:context=".ui.fragments.movies.MoviesFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.todkars.shimmer.ShimmerRecyclerView
+            android:id="@+id/movies_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:shimmer_recycler_layout="@layout/movie_shimmer_placeholder"
+            app:shimmer_recycler_item_count="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/movie_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            app:tint="@color/white"
+            android:src="@drawable/ic_bookmark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/error_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.5"
+            readApiResponse="@{viewModel.movieResponse}"
+            readDatabase="@{viewModel.readMovie}"
+            android:src="@drawable/ic_sad"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            readApiResponse="@{viewModel.movieResponse}"
+            readDatabase="@{viewModel.readMovie}"
+            tools:text="No Internet Connection"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/error_iv"
+            app:layout_constraintStart_toStartOf="@+id/error_iv"
+            app:layout_constraintTop_toBottomOf="@+id/error_iv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
