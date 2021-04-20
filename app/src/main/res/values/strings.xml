@@ -6,4 +6,8 @@
     <string name="cinemas">Cinemas</string>
     <string name="my_tickets">My Tickets</string>
     <string name="profile">Profile</string>
+    <string name="pages">Pages</string>
+    <string name="one">One</string>
+    <string name="apply">Apply</string>
+    <string name="search">Search</string>
 </resources>

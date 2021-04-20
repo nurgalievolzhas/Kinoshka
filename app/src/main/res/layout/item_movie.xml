@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.snakes.kinoshka.Result"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        onMovieClickListener="@{item}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_movie_cv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/darkGray"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/movie_iv"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    loadImageFromUrl="@{item.posterPath}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/movie_title_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/courgette"
+                    android:maxLines="2"
+                    tools:text="TextView"
+                    android:text="@{item.title}"
+                    android:textColor="@color/darker"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/movie_iv"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/movie_description_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{item.overview}"
+                    tools:text="Some text"
+                    android:maxLines="3"
+                    android:textColor="@color/darker"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    app:layout_constraintEnd_toEndOf="@+id/movie_title_tv"
+                    app:layout_constraintStart_toStartOf="@+id/movie_title_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/movie_title_tv" />
+
+                <ImageView
+                    android:id="@+id/movie_popularity_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/movie_popularity_tv"
+                    app:layout_constraintStart_toStartOf="@+id/movie_popularity_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/movie_description_tv"
+                    app:srcCompat="@drawable/ic_check"
+                    app:tint="@color/green" />
+
+                <TextView
+                    android:id="@+id/movie_popularity_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="100"
+                    setDoubleToString="@{item.popularity}"
+                    android:textColor="@color/green"
+                    app:layout_constraintStart_toStartOf="@+id/movie_description_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/movie_popularity_iv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

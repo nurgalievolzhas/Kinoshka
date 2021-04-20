@@ -7,22 +7,51 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.snakes.kinoshka.MoviesFragment"
+        android:name="com.snakes.kinoshka.ui.fragments.movies.MoviesFragment"
         android:label="Movies"
-        tools:layout="@layout/fragment_movies" />
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_moviesBottomSheetFragment"
+            app:destination="@id/moviesBottomSheetFragment" />
+        <argument
+            android:name="backFromBottomSheet"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_moviesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+    </fragment>
     <fragment
         android:id="@+id/cinemasFragment"
-        android:name="com.snakes.kinoshka.CinemasFragment"
+        android:name="com.snakes.kinoshka.ui.fragments.cinemas.CinemasFragment"
         android:label="Cinemas"
         tools:layout="@layout/fragment_cinemas" />
     <fragment
         android:id="@+id/myTicketsFragment"
-        android:name="com.snakes.kinoshka.MyTicketsFragment"
+        android:name="com.snakes.kinoshka.ui.fragments.mytickets.MyTicketsFragment"
         android:label="My Tickets"
         tools:layout="@layout/fragment_my_tickets" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.snakes.kinoshka.ProfileFragment"
+        android:name="com.snakes.kinoshka.ui.fragments.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/moviesBottomSheetFragment"
+        android:name="com.snakes.kinoshka.ui.fragments.movies.bottomsheet.MoviesBottomSheetFragment"
+        android:label="fragment_movies_bottom_sheet"
+        tools:layout="@layout/fragment_movies_bottom_sheet" >
+        <action
+            android:id="@+id/action_moviesBottomSheetFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
+    </dialog>
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="com.snakes.kinoshka.ui.DetailsActivity"
+        android:label="Details"
+        tools:layout="@layout/activity_details" >
+        <argument
+            android:name="result"
+            app:argType="com.snakes.kinoshka.Result" />
+    </activity>
 </navigation>
